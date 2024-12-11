@@ -152,8 +152,8 @@ function formatDate(dateString) {
 
   var day = date.getDate();
   var month = months[date.getMonth()];
-
-  return `2024, ${day}${getDaySuffix(day)} ${month}`;
+  var year = date.getFullYear();
+  return `${year}, ${day}${getDaySuffix(day)} ${month}`;
 }
 
 // Function to get day suffix (st, nd, rd, th)
