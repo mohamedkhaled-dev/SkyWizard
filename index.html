@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkyWizard</title>
+
+    <!-- Favicon (add or remove if not needed) -->
+    <link rel="icon" href="assets/icons/logo.png" type="image/x-icon" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Media Query CSS -->
+    <link rel="stylesheet" href="css/media.css" />
+  </head>
+  <body class="p-4 vh-100">
+    <div class="container-fluid h-100">
+      <div class="row wrapper">
+        <!-- Left Sidebar -->
+        <aside
+          class="col bg-white text-white p-2 d-flex flex-xl-column flex-row justify-content-center align-items-center"
+          id="left-sidebar"
+        >
+          <div class="logo text-center mb-xl-4 flex-xl-column">
+            <img
+              src="assets/icons/logo.png"
+              alt="Weather App Logo"
+              class="img-fluid"
+            />
+            <p class="fw-bold">SkyW<span class="special-char">i</span>zard</p>
+          </div>
+          <nav
+            class="nav flex-column align-items-end align-items-xl-center flex-grow-1"
+          >
+            <ul
+              class="icon-list mb-0 list-unstyled d-flex flex-xl-column flex-row justify-content-center"
+            >
+              <li class="icon-link active">
+                <img class="icon" src="assets/icons/dashboard.svg" alt="" />
+              </li>
+              <li class="icon-link">
+                <img class="icon" src="assets/icons/stats.svg" alt="" />
+              </li>
+              <li class="icon-link">
+                <img src="assets/icons/location.svg" alt="" class="icon" />
+              </li>
+              <li class="icon-link">
+                <img src="assets/icons/settings.svg" alt="" class="icon" />
+              </li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="col-xl col-12 main-content flex-column flex-xl-row">
+          <!-- Header -->
+          <div class="row flex-grow-1 flex-column">
+            <header
+              class="d-flex align-items-center justify-content-between px-xl-4 py-xl-3 p-3"
+            >
+              <div class="d-flex align-items-center flex-grow-1">
+                <div class="city-location">
+                  <img
+                    src="assets/icons/location-solid.svg"
+                    alt=""
+                    class="icon"
+                  />
+                  <span class="pe-xl-4 pe-2 fw-bold location-value"></span>
+                </div>
+                <div class="search-group position-relative flex-grow-1">
+                  <input
+                    id="cityInput"
+                    type="text"
+                    class="form-control rounded-4 border-0 shadow-none"
+                    placeholder="Type here"
+                  />
+                  <div class="search-icon position-absolute">
+                    <img src="assets/icons/search-icon.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+            </header>
+
+            <div
+              class="section-wrapper col d-flex flex-column position-relative"
+            >
+              <section class="p-3 mx-2">
+                <div class="row">
+                  <div class="col">
+                    <div
+                      class="row weather-column flex-row card p-3 ps-xl-3 pe-xl-5 py-xl-4 g-3"
+                    >
+                      <div class="col-12 col-xl-3 flex-grow-1">
+                        <!-- Current Weather Card -->
+                        <div class="current-card p-xl-2 pb-2">
+                          <h2 class="mb-1 current-temp"></h2>
+                          <p class="mb-1 current-date"></p>
+                          <p class="fw-bold text-white m-0 current-condition"></p>
+                        </div>
+                      </div>
+                      <div class="col-xl-8">
+                        <div class="row forecast-row">
+                          <!-- Forecast Cards -->
+                          <div class="col-12 col-sm-6 col-lg-4 col-xl-4">
+                            <div class="forecast-card card p-4 pb-2 pb-xl-3">
+                              <div
+                                class="forecast-icon position-absolute top-0 start-50 translate-middle"
+                              >
+                                <img src="assets/weather/clouds.svg" alt="" />
+                              </div>
+                              <h3 class="mb-1 pt-4 forecast-temp"></h3>
+                              <p class="text-muted m-0 pb-1 pt-4 forec"></p>
+                              <p class="fw-bold m-0"></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Repeat for other cards -->
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Highlights Section -->
+              <section class="p-3 flex-grow-1">
+                <div class="row gy-4">
+                  <h5 class="pb-0">Today's Highlights</h5>
+                  <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card property-card">
+                      <div
+                        class="wind-icon pb-4 d-flex justify-content-between align-items-center"
+                      >
+                        <img
+                          src="assets/weather/wind.svg"
+                          alt=""
+                          class="icon"
+                        />
+                        <div class="property-txt d-flex flex-column current-wind">
+                          <span class="fw-bold">Wind Speed</span>
+                          <span class="text-muted wind-status">Heavy</span>
+                        </div>
+                      </div>
+                      <h3 class="wind-value">20<span class="fw-normal"></span></h3>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card property-card">
+                      <div
+                        class="pressure-icon pb-4 d-flex justify-content-between align-items-center"
+                      >
+                        <img
+                          src="assets/weather/pressure.svg"
+                          alt=""
+                          class="icon"
+                        />
+                        <div class="property-txt d-flex flex-column">
+                          <span class="fw-bold">Pressure</span>
+                          <span class="text-muted pressure-status">Heavy</span>
+                        </div>
+                      </div>
+                      <h3 class="pressure-value">1020<span class="fw-normal"></span></h3>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card property-card">
+                      <div
+                        class="humidity-icon pb-4 d-flex justify-content-between align-items-center"
+                      >
+                        <img
+                          src="assets/weather/humidity.svg"
+                          alt=""
+                          class="icon"
+                        />
+                        <div class="property-txt d-flex flex-column current-humidity">
+                          <span class="fw-bold">Humidity</span>
+                          <span class="text-muted humidity-status">Heavy</span>
+                        </div>
+                      </div>
+                      <h3 class="humidity-value">65<span class="fw-normal"></span></h3>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="card property-card">
+                      <div
+                        class="cloudy-icon pb-4 d-flex justify-content-between align-items-center"
+                      >
+                        <img
+                          src="assets/weather/cloudy.svg"
+                          alt=""
+                          class="icon"
+                        />
+                        <div class="property-txt d-flex flex-column">
+                          <span class="fw-bold">Cloud Cover</span>
+                          <span class="text-muted cloud-status">Normal</span>
+                        </div>
+                      </div>
+                      <h3 class="cloud-value">2<span class="fw-normal"></span></h3>
+                    </div>
+                  </div>
+                  <!-- Repeat for other highlights -->
+                </div>
+              </section>
+
+              <!-- Air Quality Section -->
+              <section class="p-4 py-3">
+                <div class="row">
+                  <h5>Air Quality Index</h5>
+                  <div class="col card air-quality-column">
+                    <div
+                      class="d-flex align-items-center justify-content-between pb-1"
+                    >
+                      <div class="air-quality-info">
+                        <div class="aqi-value pt-1">
+                          <span class="value aqi-info">42</span>
+                          <span class="status status-good aqi-status">Good</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="air-quality-scale">
+                      <div class="scale-item good">
+                        <span class="dot"></span>
+                        <p>Good</p>
+                      </div>
+                      <div class="scale-item moderate">
+                        <span class="dot"></span>
+                        <p>Moderate</p>
+                      </div>
+                      <div class="scale-item unhealthy">
+                        <span class="dot"></span>
+                        <p>Unhealthy</p>
+                      </div>
+                      <div class="scale-item hazardous">
+                        <span class="dot"></span>
+                        <p>Hazardous</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <!-- Right Sidebar -->
+          <aside class="d-flex flex-column p-0 p-3" id="right-sidebar">
+            <div class="card chance-of-rain-card flex-grow-1">
+              <h5>Chance of Rain</h5>
+              <div class="progress-container">
+                <span class="hourly-date">8 AM</span>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 20%"
+                    aria-valuenow="10"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    20%
+                  </div>
+                </div>
+              </div>
+              <div class="progress-container">
+                <span class="hourly-date">11 AM</span>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 40%"
+                    aria-valuenow="40"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    40%
+                  </div>
+                </div>
+              </div>
+              <div class="progress-container">
+                <span class="hourly-date">2 PM</span>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 60%"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    60%
+                  </div>
+                </div>
+              </div>
+
+              <div class="progress-container">
+                <span class="hourly-date">5 PM</span>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 80%"
+                    aria-valuenow="80"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    80%
+                  </div>
+                </div>
+              </div>
+
+              <div class="progress-container">
+                <span class="hourly-date">8 PM</span>
+                <div class="progress">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    style="width: 100%"
+                    aria-valuenow="100"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    100%
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="avatar-container">
+              <img src="assets/icons/avatar.svg" alt="" />
+            </div>
+          </aside>
+        </main>
+      </div>
+    </div>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>

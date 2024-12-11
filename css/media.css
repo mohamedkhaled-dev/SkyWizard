@@ -1,0 +1,35 @@
+@media (min-width: 1200px) {
+  /* Header */
+  .logo {
+    width: fit-content;
+  }
+  .icon-link {
+    padding-inline: 0;
+    padding-block: 1.25rem;
+  }
+
+  .icon-link.active {
+    padding: 0;
+  }
+
+  /* Weather Column Styles */
+  .weather-column {
+    background: linear-gradient(
+      90deg,
+      var(--primary-color) 0%,
+      rgba(196, 38, 235, 0) 100%
+    );
+  }
+
+  /* Air Quality Styles */
+  .air-quality-column {
+    background-position: left;
+  }
+
+  .avatar-container {
+    width: auto;
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+}
