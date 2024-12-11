@@ -6,7 +6,7 @@
 
 Here's a preview of the SkyWizard weather app:
 
-![SkyWizard App Screenshot](https://github.com/mohamedkhaled-dev/SkyWizard/blob/main/assets/screenshot/screenshot.png)
+![SkyWizard App Screenshot](https://github.com/mohamedkhaled-dev/Skywizard/blob/main/assets/screenshot/screenshot.png)
 
 ## Features ✨
 
