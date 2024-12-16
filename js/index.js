@@ -64,12 +64,16 @@ async function checkWeather() {
     var forecastData = [];
     for (var i = 0; i < data.forecast.forecastday.length; i++) {
       var forecast = data.forecast.forecastday[i];
+      var currentDateTime = new Date(data.location.localtime);
+      var currentHour = currentDateTime.getHours();
+      var currentHourData = forecast.hour[currentHour];
+
       var forecastObject = {
         location: data.location.country + ", " + data.location.name,
         date: forecast.date,
-        temp: forecast.day.avgtemp_c,
-        condition: forecast.day.condition.text,
-        icon: "https:" + forecast.day.condition.icon,
+        temp: currentHourData.temp_c,
+        condition: currentHourData.condition.text,
+        icon: "https:" + currentHourData.condition.icon,
       };
 
       forecastData.push(forecastObject);
@@ -153,6 +157,7 @@ function formatDate(dateString) {
   var day = date.getDate();
   var month = months[date.getMonth()];
   var year = date.getFullYear();
+
   return `${year}, ${day}${getDaySuffix(day)} ${month}`;
 }
 
